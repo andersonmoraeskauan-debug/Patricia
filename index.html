@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para minha mãe ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #fdf2f8, #ffe4e6);
+    overflow-x: hidden;
+}
+
+/* ===== HERO ===== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+}
+
+.hero-box {
+    background: white;
+    max-width: 800px;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    animation: fadeIn 1.5s ease;
+}
+
+.hero-box h1 {
+    font-size: 2.6em;
+    color: #e11d48;
+    margin-bottom: 15px;
+}
+
+.hero-box p {
+    font-size: 1.2em;
+    color: #444;
+    line-height: 1.8;
+}
+
+/* ===== SEÇÕES ===== */
+.section {
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.section-box {
+    max-width: 900px;
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s;
+}
+
+.section-box.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section h2 {
+    color: #e11d48;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.section p {
+    font-size: 1.15em;
+    color: #555;
+    line-height: 1.9;
+}
+
+/* ===== ASSINATURA ===== */
+.signature {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+/* ===== CORAÇÕES ===== */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    color: #e11d48;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.7;
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes floatUp {
+    from {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-110vh) translateX(30px);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 600px) {
+    .hero-box h1 {
+        font-size: 2.1em;
+    }
+    .section h2 {
+        font-size: 1.7em;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-box">
+        <h1>Mãe ❤️</h1>
+        <p>
+            Esse site é só uma pequena forma de expressar tudo o que mora no meu coração.
+            Nada no mundo seria suficiente para mostrar o quanto você é importante pra mim.
+        </p>
+    </div>
+</div>
+
+<!-- SEÇÃO 1 -->
+<div class="section">
+    <div class="section-box">
+        <h2>Meu pedido de perdão</h2>
+        <p>
+            Quero te pedir perdão por todas as vezes em que errei, pelas palavras ditas
+            sem pensar e pelos momentos em que não soube demonstrar o amor imenso que sinto.
+            Nunca foi falta de amor, foi falta de maturidade.
+        </p>
+    </div>
+</div>
+
+<!-- SEÇÃO 2 -->
+<div class="section">
+    <div class="section-box">
+        <h2>Uma mulher guerreira</h2>
+        <p>
+            Você é uma verdadeira guerreira. Todos os dias luta, enfrenta dificuldades,
+            se doa por inteiro e nunca desiste. Seu esforço, sua força e sua dedicação
+            são inspirações pra mim.
+        </p>
+        <p>
+            Eu tenho uma gratidão infinita por tudo o que você faz, mesmo quando ninguém vê.
+        </p>
+    </div>
+</div>
+
+<!-- SEÇÃO 3 -->
+<div class="section">
+    <div class="section-box">
+        <h2>Você é tudo pra mim</h2>
+        <p>
+            Você é meu porto seguro, minha base, meu apoio em todos os momentos.
+            Tudo o que sou e tudo o que sonho em ser começa em você.
+        </p>
+        <p>
+            Eu te amo mais do que palavras conseguem explicar.
+            Você é tudo pra mim.
+        </p>
+
+        <div class="signature">
+            Com todo meu amor,<br>
+            <strong>Kauan</strong> 💙
+        </div>
+    </div>
+</div>
+
+<script>
+/* Animação ao rolar */
+const sections = document.querySelectorAll('.section-box');
+
+window.addEventListener('scroll', () => {
+    sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            section.classList.add('show');
+        }
+    });
+});
+
+/* Corações flutuando */
+setInterval(() => {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.innerHTML = '❤️';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (15 + Math.random() * 20) + 'px';
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}, 500);
+</script>
+
+</body>
+</html>
